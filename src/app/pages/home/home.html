@@ -1,0 +1,42 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-50 p-4">
+    <div class="w-full max-w-lg bg-white rounded-xl shadow-2xl p-10 space-y-6">
+
+        <h2 class="text-3xl font-extrabold text-center text-gray-900">Crear una Cuenta</h2>
+        <p class="text-center text-gray-600">Únete a nuestra comunidad en segundos.</p>
+
+        <form (submit)="onSubmit($event)" class="space-y-6" novalidate>
+
+            <app-input-field label="Nombre de Usuario" type="text" [field]="signupForm.username"
+                [fieldSignal]="usernameField" placeholder="Ej: guerrero_digital" />
+
+            <app-input-field label="Correo Electrónico" type="email" [field]="signupForm.email"
+                [fieldSignal]="emailField" placeholder="tu.correo@ejemplo.com" />
+
+            <app-input-field label="Contraseña" type="password" [field]="signupForm.password"
+                [fieldSignal]="passwordField" placeholder="Mínimo 6 caracteres" />
+
+            <app-input-field label="Confirmar Contraseña" type="password" [field]="signupForm.confirmPassword"
+                [fieldSignal]="confirmPasswordField" placeholder="Repite la contraseña">
+                <!-- @if (confirmPasswordField.touched() && signupForm().errors()?.passwordsDoNotMatch) {
+                <p class="mt-1 text-sm text-red-600">Las contraseñas no coinciden.</p>
+                } -->
+            </app-input-field>
+
+            <button type="submit" [disabled]="signupForm().invalid()"
+                class="w-full mt-5 py-3 px-4 rounded-lg font-bold transition duration-300 transform hover:scale-[1.01] focus:outline-none focus:ring-4 focus:ring-opacity-50"
+                [class.bg-green-600]="signupForm().valid()" [class.hover:bg-green-700]="signupForm().valid()"
+                [class.focus:ring-green-500]="signupForm().valid()" [class.bg-gray-400]="signupForm().invalid()"
+                [class.cursor-not-allowed]="signupForm().invalid()" [class.text-white]="true">
+                Registrar Cuenta
+            </button>
+
+        </form>
+
+        <div class="pt-4 border-t border-gray-200 mt-6 text-sm">
+            <h3 class="font-semibold text-gray-800">Valor del Modelo (Debug)</h3>
+            <pre
+                class="bg-gray-100 p-3 rounded-md overflow-auto text-xs text-gray-700">{{ signupForm().value() | json }}</pre>
+        </div>
+
+    </div>
+</div>
