@@ -1,6 +1,5 @@
-import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { Field } from '@angular/forms/signals';
+import { Field, FieldState } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-input-field',
@@ -20,7 +19,6 @@ export class InputField {
   field = input.required<any>();
 
   // 2. El FieldSignal para acceder al estado (invalid, touched, errors)
-  // Usamos InputSignal<any> si FieldSignal no está disponible para exportar
-  fieldSignal = input<any>();
+  fieldSignal = input.required<FieldState<any>>();
 
 }

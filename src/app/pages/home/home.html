@@ -1,6 +1,11 @@
 <div class="min-h-screen flex items-center justify-center bg-gray-50 p-4">
     <div class="w-full max-w-lg bg-white rounded-xl shadow-2xl p-10 space-y-6">
 
+        <app-test [(label)]="label"></app-test>
+
+        <pre
+            class="bg-gray-100 p-3 rounded-md overflow-auto text-xs text-gray-700">{{ label() }}</pre>
+
         <h2 class="text-3xl font-extrabold text-center text-gray-900">Crear una Cuenta</h2>
         <p class="text-center text-gray-600">Únete a nuestra comunidad en segundos.</p>
 

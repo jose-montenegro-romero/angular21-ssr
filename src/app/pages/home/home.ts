@@ -5,17 +5,21 @@ import { email, form, minLength, required } from '@angular/forms/signals';
 import { JsonPipe } from '@angular/common';
 // Components
 import { InputField } from '../../shared/components/input-field/input-field';
+import { Test } from '../../shared/components/test/test';
 
 @Component({
   selector: 'app-home',
   imports: [
     JsonPipe,
-    InputField
+    InputField,
+    Test
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
 export class Home {
+
+  label = signal("Hola mundo");
 
   private readonly signupModel = signal<ISignupForm>({
     username: '',
